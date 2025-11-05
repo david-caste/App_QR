@@ -1,0 +1,116 @@
+/* Estilos generales */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f7fc;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Encabezado */
+h1 {
+    color: #333;
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+/* Formulario */
+form {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 500px;
+    margin: 0 20px;
+}
+
+/* Etiquetas y campos de entrada */
+label {
+    font-size: 1rem;
+    color: #333;
+    margin-bottom: 8px;
+    display: inline-block;
+}
+
+input[type="text"] {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 2px solid #ddd;
+    border-radius: 4px;
+    font-size: 1rem;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease;
+}
+
+input[type="text"]:focus {
+    border-color: #4A90E2;
+    outline: none;
+}
+
+/* Botón de envío */
+button {
+    background-color: #064fa1;
+    color: white;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #357ABD;
+}
+
+/* Contenedor del QR */
+.qr-container {
+    text-align: center;
+    margin-top: 30px;
+    display: none;
+}
+
+.qr-container h2 {
+    color: #333;
+    font-size: 1.5rem;
+}
+
+.qr-container img {
+    max-width: 200px;
+    margin: 20px 0;
+}
+
+a {
+    font-size: 1rem;
+    color: #4A90E2;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Estilos para dispositivos móviles */
+@media (max-width: 600px) {
+    body {
+        padding: 10px;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    .qr-container img {
+        max-width: 150px;
+    }
+
+    button {
+        width: 100%;
+    }
+}

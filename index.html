@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./static/style.css">
+    <title>Generador de QR</title>
+</head>
+<body>
+    <h1>Generador de Codigos QR</h1>
+    <form id="qrForm">
+        <label for="url">Ingresa la URL para generar el codigo QR:</label><br><br>
+        <input type="text" id="url" name="url" placeholder="https://www.youtube.com/" required><br><br>
+        <button type="submit" class="btn-enviar">Generar QR</button>
+    </form>
+
+    <div class="qr-container" id="qrContainer" style="display: none;">
+        <h2>Código QR generado:</h2>
+        <img id="qrImage" src="" alt="QR Code">
+        <br><br>
+        <a id="downloadLink" href="" download="codigo_qr.png">Descargar QR</a>
+    </div>
+
+    <script>
+        document.getElementById('qrForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const url = document.getElementById('url').value;
+            generateQRCode(url);
+        });
+
+        function generateQRCode(url) {
+            fetch(`/generate_qr?url=${encodeURIComponent(url)}`)
+                .then(response => response.blob())
+                .then(blob => {
+                    const qrImageUrl = URL.createObjectURL(blob);
+                    document.getElementById('qrImage').src = qrImageUrl;
+                    document.getElementById('downloadLink').href = qrImageUrl;
+                    document.getElementById('qrContainer').style.display = 'block';
+                })
+                .catch(error => {
+                    alert('Error al generar el código QR: ' + error.message);
+                });
+        }
+    </script>
+</body>
+</html>
